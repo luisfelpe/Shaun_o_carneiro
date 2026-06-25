@@ -14,8 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Suffolk",
-  description: "In a Ship with a Sheep, Suffolk.",
-            //  em um barco com uma ovelha, Suffolk.
+  description: "In a Ship with a Sheep, Suffolk.",              
 };
 
 export default function RootLayout({
