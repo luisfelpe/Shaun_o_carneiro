@@ -1,36 +1,4 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  min-height: 100vh;
-  margin: 0;
-  background: linear-gradient(180deg, #8dc2ff 0%, #c7f0ff 35%, #e9f7eb 70%, #f8f6f2 100%);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.login-page {
+.loginPage {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -39,9 +7,10 @@ body {
   padding: 40px 16px;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(180deg, #8dc2ff 0%, #c7f0ff 35%, #e9f7eb 70%, #f8f6f2 100%);
 }
 
-.login-page::before {
+.loginPage::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -50,7 +19,7 @@ body {
   pointer-events: none;
 }
 
-.hero-inner {
+.heroInner {
   position: relative;
   width: min(420px, 100%);
   display: flex;
@@ -59,7 +28,7 @@ body {
   gap: 36px;
 }
 
-.logo-container {
+.logoContainer {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -86,7 +55,7 @@ body {
   color: #111;
 }
 
-.login-card {
+.loginCard {
   width: 100%;
   background: rgba(255, 255, 255, 0.97);
   border-radius: 24px;
@@ -113,7 +82,7 @@ body {
   gap: 8px;
 }
 
-.label-text {
+.labelText {
   font-weight: 600;
 }
 
@@ -173,47 +142,17 @@ body {
   font-weight: 600;
 }
 
-.card-foot {
+.cardFoot {
   display: flex;
   justify-content: flex-start;
 }
 
 @media (max-width: 480px) {
-  .login-card {
+  .loginCard {
     padding: 28px 20px;
   }
 
   .brand {
     font-size: 24px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background: linear-gradient(180deg, #031226 0%, #04162c 60%, #08141f 100%);
-  }
-
-  .login-card {
-    background: rgba(12, 16, 30, 0.96);
-    color: #e2e8f0;
-    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
-  }
-
-  .label {
-    color: #94a3b8;
-  }
-
-  .input {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(148, 163, 184, 0.24);
-    color: #e2e8f0;
-  }
-
-  .btn {
-    background: #111;
-  }
-
-  .hint a {
-    color: #cbd5e1;
   }
 }
