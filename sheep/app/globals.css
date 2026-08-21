@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(180deg, #8dc2ff 0%, #c7f0ff 35%, #e9f7eb 70%, #f8f6f2 100%);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.8), transparent 35%),
+    radial-gradient(circle at bottom, rgba(255, 255, 255, 0.35), transparent 22%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  width: min(420px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+}
+
+.logo {
+  width: 96px;
+  height: 96px;
+  border-radius: 20px;
+  font-size: 44px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  background: rgba(255, 255, 255, 0.98);
+  display: grid;
+  place-items: center;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  color: #111;
+}
+
+.login-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 24px;
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+  padding: 34px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  z-index: 1;
+}
+
+.title {
+  text-align: left;
+  margin: 0;
+  font-size: 22px;
+  color: #0f1724;
+}
+
+.label {
+  font-size: 13px;
+  color: #64748b;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label-text {
+  font-weight: 600;
+}
+
+.input {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #e8eef6;
+  background: #f9fbff;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 4px rgba(96, 123, 255, 0.12);
+  border-color: #7c96ff;
+}
+
+.btn {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #181818;
+  color: white;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: #111;
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.message {
+  margin: 0;
+  text-align: center;
+  color: #e11d48;
+  font-size: 13px;
+}
+
+.hint {
+  margin: 0;
+  text-align: left;
+  font-size: 13px;
+  color: #475569;
+}
+
+.hint a {
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.card-foot {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 28px 20px;
+  }
+
+  .brand {
+    font-size: 24px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(180deg, #031226 0%, #04162c 60%, #08141f 100%);
+  }
+
+  .login-card {
+    background: rgba(12, 16, 30, 0.96);
+    color: #e2e8f0;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
+  }
+
+  .label {
+    color: #94a3b8;
+  }
+
+  .input {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(148, 163, 184, 0.24);
+    color: #e2e8f0;
+  }
+
+  .btn {
+    background: #111;
+  }
+
+  .hint a {
+    color: #cbd5e1;
+  }
+}
