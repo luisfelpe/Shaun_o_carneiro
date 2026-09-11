@@ -7,7 +7,7 @@ export async function POST(request: Request) {
 
     // Credenciais de exemplo — substitua por validação real
     const validUser =[
-    [username === 'Felps' && password === 'flipones2'],
+    [username === 'Luis' && password === 'felipe'],
     [username === 'Allana' && password === 'marques'],
     [username === 'Gabi' && password === 'rebecca'],
     [username === 'Raira' && password === 'alves']
