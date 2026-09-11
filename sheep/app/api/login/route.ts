@@ -6,7 +6,10 @@ export async function POST(request: Request) {
     const { username, password } = body;
 
     // Credenciais de exemplo — substitua por validação real
-    const validUser = username === 'admin' && password === 'senha123';
+    const validUser = username === 'Felps' && password === 'flipones2';
+    const validUser = username === 'Allana' && password === 'marques';
+    const validUser = username === 'Gabi' && password === 'rebecca';
+    const validUser = username === 'Raira' && password === 'alves';
 
     if (!validUser) {
       return NextResponse.json({ ok: false, message: 'Credenciais inválidas' }, { status: 401 });
