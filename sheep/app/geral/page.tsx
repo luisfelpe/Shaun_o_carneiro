@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import {Layoutcard} from '@/componentes/Cardlayout'
-
+import { Layoutcard } from '@/componentes/Cardlayout'
+import { OvelhaCard } from '@/componentes/Cardovelha'
 
 export default function Dashboard() {
     return (
@@ -38,7 +38,7 @@ export default function Dashboard() {
                     <Layoutcard titulo="Atenção Nutricional" valor="3 Borregos" contexto="⚠️ GPD abaixo da linha de corte" bordaCor="#D97706" />
                 </section>
 
-                <section class="cardovelha">
+                <section className="cardovelha">
                     <h2 style={{ fontSize: '18px', color: '#111827', marginBottom: '20px', fontWeight: '700' }}>Pesagem Individual dos Animais</h2>
                     <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                         <thead>
@@ -51,27 +51,9 @@ export default function Dashboard() {
                             </tr>
                         </thead>
                         <tbody style={{ color: '#111827', fontSize: '15px' }}>
-                            <tr style={{ borderBottom: '1px solid #F3F4F6' }}>
-                                <td style={{ padding: '16px 10px', fontWeight: '700' }}>#SUF-881</td>
-                                <td>Reprodutor (Macho)</td>
-                                <td>122.3 kg</td>
-                                <td>--</td>
-                                <td><span style={{ color: '#16A34A', fontWeight: '600' }}>🟢 Reprodutor Superior</span></td>
-                            </tr>
-                            <tr style={{ borderBottom: '1px solid #F3F4F6' }}>
-                                <td style={{ padding: '16px 10px', fontWeight: '700' }}>#SUF-942</td>
-                                <td>Borrego para Abate</td>
-                                <td>45.1 kg</td>
-                                <td>0.430 kg/dia</td>
-                                <td><span style={{ color: '#16A34A', fontWeight: '600' }}>🟢 Alta Conversão</span></td>
-                            </tr>
-                            <tr style={{ borderBottom: '1px solid #F3F4F6' }}>
-                                <td style={{ padding: '16px 10px', fontWeight: '700' }}>#SUF-950</td>
-                                <td>Cordeiro Desmamado</td>
-                                <td>28.4 kg</td>
-                                <td>0.295 kg/dia</td>
-                                <td><span style={{ color: '#D97706', fontWeight: '600' }}>🟡 Déficit Nutricional</span></td>
-                            </tr>
+                            <OvelhaCard brinco="#SUF-001" categoria="Reprodutor" peso="48.8" GPD="--" status="🟢 Estavel"></OvelhaCard>
+                            <OvelhaCard brinco="#SUF-942" categoria="Borrego para Abate" peso="45.1" GPD="0.430" status="🟢 Alta Conversão"></OvelhaCard>
+                            <OvelhaCard brinco="#SUF-950" categoria="Cordeiro Desmamado" peso="28.4" GPD="0.295" status="🟡 Déficit Nutricional"></OvelhaCard>
                         </tbody>
                     </table>
                 </section>

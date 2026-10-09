@@ -1,16 +1,23 @@
 import { Animal } from "@/types/Tipos";
 
 type OvelhaProps = {
-    ovelha: Animal;
+    id: number;
+    nome: string;
+    categoria: string;
+    brinco: string;
+    sexo: string;
+    peso: number;
+    GPD: number;
+    status: string;
 }
-export function OvelhaCard({ ovelha }: OvelhaProps) {
+export function OvelhaCard({ id, nome, categoria, brinco, sexo, peso, GPD, status }: OvelhaProps) {
     return (
-        <div style={{ borderBottom: '1px solid #F3F4F6' }}>
-            <p style={{ padding: '16px 10px', fontWeight: '700' }}>#SUF-881</p>
-            <p>Reprodutor (Macho)</p>
-            <p>{peso}</p>
-            <p>{GPD}</p>
-            <p><span style={{ color: '#16A34A', fontWeight: '600' }}>🟢 ovelha.status</span></p>
-        </div>
+        <tr style={{ borderBottom: '1px solid #F3F4F6' }}>
+            <td style={{ padding: '16px 10px', fontWeight: '700' }}>{brinco}</td>
+            <td>{categoria}</td>
+            <td>{peso} kg</td>
+            <td>{GPD} kg/dia</td>
+            <td><span style={{ color: '#16A34A', fontWeight: '600' }}>{status}</span></td>
+        </tr>
     );
 };
