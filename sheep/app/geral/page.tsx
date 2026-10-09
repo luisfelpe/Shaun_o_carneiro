@@ -1,21 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import {Layoutcard} from '@/componentes/Cardlayout'
 
-interface CardMetricaProps {
-    titulo: string;
-    valor: string;
-    contexto: string;
-    bordaCor: string;
-}
-
-const CardMetrica = ({ titulo, valor, contexto, bordaCor }: CardMetricaProps) => (
-    <div style={{ backgroundColor: '#FFFFFF', padding: '24px', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)', borderTop: `4px solid ${bordaCor}` }}>
-        <span style={{ color: '#6B7280', fontSize: '13px', fontWeight: '600', textTransform: 'uppercase' }}>{titulo}</span>
-        <h3 style={{ fontSize: '32px', color: '#111827', margin: '8px 0', fontWeight: '700' }}>{valor}</h3>
-        <span style={{ fontSize: '13px', color: bordaCor }}>{contexto}</span>
-    </div>
-);
 
 export default function Dashboard() {
     return (
@@ -45,13 +32,13 @@ export default function Dashboard() {
                 </header>
 
                 <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px', marginBottom: '40px' }}>
-                    <CardMetrica titulo="Plantel Ativo" valor="245 ovinos" contexto="180 Matrizes | 55 Cordeiros" bordaCor="#111827" />
-                    <CardMetrica titulo="GPD Médio de Cordeiros" valor="0.415 kg/dia" contexto="🏆 Meta de precocidade atingida" bordaCor="#16A34A" />
-                    <CardMetrica titulo="Peso Médio ao Abate" valor="44.8 kg" contexto="Terminação ideal (90-110 dias)" bordaCor="#16A34A" />
-                    <CardMetrica titulo="Atenção Nutricional" valor="3 Borregos" contexto="⚠️ GPD abaixo da linha de corte" bordaCor="#D97706" />
+                    <Layoutcard titulo="Plantel Ativo" valor="245 ovinos" contexto="180 Matrizes | 55 Cordeiros" bordaCor="#111827" />
+                    <Layoutcard titulo="GPD Médio de Cordeiros" valor="0.415 kg/dia" contexto="🏆 Meta de precocidade atingida" bordaCor="#16A34A" />
+                    <Layoutcard titulo="Peso Médio ao Abate" valor="44.8 kg" contexto="Terminação ideal (90-110 dias)" bordaCor="#16A34A" />
+                    <Layoutcard titulo="Atenção Nutricional" valor="3 Borregos" contexto="⚠️ GPD abaixo da linha de corte" bordaCor="#D97706" />
                 </section>
 
-                <section style={{ backgroundColor: '#FFFFFF', padding: '28px', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
+                <section class="cardovelha">
                     <h2 style={{ fontSize: '18px', color: '#111827', marginBottom: '20px', fontWeight: '700' }}>Pesagem Individual dos Animais</h2>
                     <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                         <thead>

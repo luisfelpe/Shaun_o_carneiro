@@ -216,4 +216,16 @@ body {
   .hint a {
     color: #cbd5e1;
   }
+  .cardovelha {
+   background: #ffffff;
+   padding: 28px;
+   border-Radius: 12px;
+   box-Shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .cardh2 {
+    font-Size: 18px;
+    color: #111827; 
+    margin-Bottom: 20px; 
+    font-Weight: 700;
+  }
 }
