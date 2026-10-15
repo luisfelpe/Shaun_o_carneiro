@@ -13,9 +13,9 @@ export default function Dashboard() {
                 </h2>
                 <nav style={{ display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
                     <div style={{ padding: '12px 16px', backgroundColor: '#16A34A', borderRadius: '8px', fontWeight: '700', cursor: 'pointer' }}>📊 Visão Geral</div>
-                    <div style={{ padding: '12px 16px', color: '#9CA3AF', cursor: 'pointer', borderRadius: '8px' }}>🐑 Controle de Lotes</div>
-                    <div style={{ padding: '12px 16px', color: '#9CA3AF', cursor: 'pointer', borderRadius: '8px' }}>🧬 Cruzamentos & EBVs</div>
-                    <div style={{ padding: '12px 16px', color: '#9CA3AF', cursor: 'pointer', borderRadius: '8px' }}>💉 Cronograma Sanitário</div>
+                    <Link href="/lotes" style={{ padding: '12px 16px', color: '#9CA3AF', cursor: 'pointer', borderRadius: '8px' }}>🐑 Controle de Lotes</Link>
+                    <Link href="/cruzamentos" style={{ padding: '12px 16px', color: '#9CA3AF', cursor: 'pointer', borderRadius: '8px' }}>🧬 Cruzamentos & EBVs</Link>
+                    <Link href="/sanitariamento" style={{ padding: '12px 16px', color: '#9CA3AF', cursor: 'pointer', borderRadius: '8px' }}>💉 Cronograma Sanitário</Link>
                 </nav>
                 <Link href="/" style={{ textDecoration: 'none', color: '#EF4444', padding: '12px 16px', fontWeight: '600', fontSize: '15px' }}>🚪 Encerrar Sessão</Link>
             </aside>
