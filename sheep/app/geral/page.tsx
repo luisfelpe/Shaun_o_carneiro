@@ -51,9 +51,9 @@ export default function Dashboard() {
                             </tr>
                         </thead>
                         <tbody style={{ color: '#111827', fontSize: '15px' }}>
-                            <OvelhaCard brinco="#SUF-001" categoria="Reprodutor" peso={48.8} GPD={0} status="🟢 Estavel"></OvelhaCard>
-                            <OvelhaCard brinco="#SUF-942" categoria="Borrego para Abate" peso={45.1} GPD={0.43} status="🟢 Alta Conversão"></OvelhaCard>
-                            <OvelhaCard brinco="#SUF-950" categoria="Cordeiro Desmamado" peso={28.4} GPD={0.295} status="🟡 Déficit Nutricional"></OvelhaCard>
+                            <OvelhaCard id={2} nome="Shaun" brinco="#SUF-001" sexo="Macho" categoria="Reprodutor" peso={48.8} GPD={0} status="🟢 Estavel"></OvelhaCard>
+                            <OvelhaCard id={3} nome="Borrego" brinco="#SUF-942" sexo="Macho" categoria="Borrego para Abate" peso={45.1} GPD={0.43} status="🟢 Alta Conversão"></OvelhaCard>
+                            <OvelhaCard id={1} nome="Codeiro" brinco="#SUF-950" sexo="Macho" categoria="Cordeiro Desmamado" peso={28.4} GPD={0.295} status="🟡 Déficit Nutricional"></OvelhaCard>
                         </tbody>
                     </table>
                 </section>
