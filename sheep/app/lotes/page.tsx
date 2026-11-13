@@ -1,39 +1,45 @@
 import Link from 'next/link';
 import { OvelhaCard } from '@/componentes/Cardovelha'
 import { Animal } from "@/types/Tipos";
+import { readFile, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import { connection } from 'next/server';
+import { revalidatePath } from 'next/cache';
+
+const dbPath = join(process.cwd(), 'db.json');
+
+async function lerOvelhas(): Promise<Animal[]> {
+    const dados: unknown = JSON.parse(await readFile(dbPath, 'utf8'));
+
+    if (!dados || typeof dados !== 'object' || !('ovelhas' in dados) || !Array.isArray(dados.ovelhas)) {
+        throw new Error('db.json deve conter uma lista em "ovelhas".');
+    }
+
+    return dados.ovelhas as Animal[];
+}
+
 export default async function Dashboard() {
-    const url = "http://localhost:3000/lotes";
-    const ovelhas: Animal[] = await fetch(url).then(
-        (resp) => resp.json()
-    );
+    await connection();
+    const ovelhas = await lerOvelhas();
 
     async function cadastrar(formData: FormData){
         "use server";
 
-        const resposta = await fetch(
-            url,
+        const atuais = await lerOvelhas();
+        const novaOvelha = {
+            id: Math.max(0, ...atuais.map(ovelha => ovelha.id)) + 1,
+            nome: String(formData.get('nome') ?? ''),
+            sexo: String(formData.get('sexo') ?? ''),
+            idade: Number(formData.get('idade')),
+            status: String(formData.get('status') ?? ''),
+            peso: Number(formData.get('peso')),
+            GPD: Number(formData.get('gpd')),
+            brinco: String(formData.get('brinco') ?? ''),
+            categoria: 'Não informada',
+        };
 
-            {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    "nome": formData.get("nome"),
-                    "sexo": formData.get("sexo"),
-                    "idade": formData.get("idade"),
-                    "status": formData.get("status"),
-                    "peso": formData.get("peso"),
-                    "gpd": formData.get("gpd"),
-                    "brinco": formData.get("brinco"),
-                })
-            }
-        )
-
-        if(!resposta.ok) {
-            throw new Error("Não consegui cadastrar.")
-        }
+        await writeFile(dbPath, JSON.stringify({ ovelhas: [...atuais, novaOvelha] }, null, 2));
+        revalidatePath('/lotes');
     }   
 
 
@@ -54,7 +60,11 @@ export default async function Dashboard() {
             <button type="submit">Salvar</button>
         </form>
 
-        {ovelhas.map(ovelha => <OvelhaCard key={ovelha.brinco} ovelha={ovelha}></OvelhaCard>)}
+        <table>
+            <tbody>
+                {ovelhas.map(ovelha => <OvelhaCard key={ovelha.id} {...ovelha} />)}
+            </tbody>
+        </table>
         
         <Link href="/geral" style={{ textDecoration: 'none', color: '#EF4444', padding: '12px 16px', fontWeight: '600', fontSize: '15px' }}>🚪 Retornar</Link>
     </>;
